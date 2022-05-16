@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  service1:
+    image: cpsamuel96/:latest
+    container_name:
+    - target: 5000
+      published: 5000
+  service2:
+    image: cpsamuel96/:latest
+    cointainer_name:
+    - target: 5001
+      published: 5001
+  service3:
+    image: cpsamuel96/:latest
+    container_name:
+    - target: 5002
+      published: 5002
+  service4:
+    image: cpsamuel96/:latest
+    cointainer_name:
+    - target: 5003
+      published: 5003
