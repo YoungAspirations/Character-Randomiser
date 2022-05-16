@@ -11,7 +11,7 @@ def Character():
     role = requests.get('http://localhost:5002/role')
     affinity = requests.get('http://localhost:5003/Character')
     
-    return render_template('Character.html', alignment= affinity)
+    return render_template('Character.html',race = race, role = role, alignment = affinity)
 
 if __name__ == '__main__':
     app.run(port=5002, debug=True, host='0.0.0.0')
