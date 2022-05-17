@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask, Response
 from random import choice
 app = Flask(__name__)
