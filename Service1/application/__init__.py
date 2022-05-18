@@ -13,16 +13,15 @@ def Character():
     #components = race.update(role)
     #affinity = requests.post('http://localhost:5003/Character', data=components).text
 
-    race = requests.get('http://localhost:5001/race').text
-    role = requests.get('http://localhost:5002/role').text
-    print(race)
-    print(role)
-    race_dict = json.loads(race)
-    role_dict = json.loads(role)
-    components = dict(race_dict.items + role_dict.items())
-    affinity = requests.post('http://localhost:5003/Character', data=components).text
-    
-    return render_template('Character.html',race = race, role = role, alignment = affinity)
+    race = requests.get('http://localhost:5001/get/race')
+    role = requests.get('http://localhost:5002/get/role')
+    race_json = race.json()
+    role_json = role.json()
+    #new_dictionary ={**race_json, **role_json}
+    #new_dictionary ={**race, **role}
+    affinity = requests.post('http://localhost:5003/post/Character', json={"key": race_json, "value": role_json})
+    affinity1 = affinity.json()
+    return render_template('Character.html',race = race_json, role = role_json, alignment = affinity1)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True, host='0.0.0.0')
