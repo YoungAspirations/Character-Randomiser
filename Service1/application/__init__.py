@@ -13,13 +13,13 @@ def Character():
     #components = race.update(role)
     #affinity = requests.post('http://localhost:5003/Character', data=components).text
 
-    race = requests.get('http://service1:5001/get/race')
-    role = requests.get('http://service2:5002/get/role')
+    race = requests.get('http://service2:5001/get/race')
+    role = requests.get('http://service3:5002/get/role')
     race_json = race.json()
     role_json = role.json()
     #new_dictionary ={**race_json, **role_json}
     #new_dictionary ={**race, **role}
-    affinity = requests.post('http://service3:5003/post/Character', json={"key": race_json, "value": role_json})
+    affinity = requests.post('http://service4:5003/post/Character', json={"key": race_json, "value": role_json})
     affinity1 = affinity.json()
     return render_template('Character.html',race = race_json, role = role_json, alignment = affinity1)
 
