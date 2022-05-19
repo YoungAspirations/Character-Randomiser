@@ -17,9 +17,9 @@ class TestView(TestBase):
 class TestGet(TestBase):
     def test_get_race_role(self):
         with requests_mock.Mocker() as m:
-            m.get('http://localhost:5001/get/race', json={"Human": 0})
-            m.get('http://localhost:5002/get/role', json={"Priest": 3})
-            m.post('http://localhost:5003/post/Character', json={"key": {"Human": 0}, "value": {"Priest": 3}})
+            m.get('http://service1:5001/get/race', json={"Human": 0})
+            m.get('http://service2:5002/get/role', json={"Priest": 3})
+            m.post('http://service3:5003/post/Character', json={"key": {"Human": 0}, "value": {"Priest": 3}})
             response = self.client.get(url_for('Character'))
             self.assertIn(b'Human', response.data)
             #self.assertIn(b'Priest', response.data)
