@@ -1,0 +1,8 @@
+---
+# tasks file for managerclonerepo
+- name: clone git repo
+  git:
+    repo: https://github.com/YoungAspirations/Character-Randomiser.git
+    dest: /home/CPier/Character-Randomiser
+    single_branch: yes
+    version: feature/Docker
