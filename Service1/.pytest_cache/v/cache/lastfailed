@@ -1,0 +1,7 @@
+{
+  "testing/test_s1.py::TestView::test_Character_get": true,
+  "testing/test_s1.py::TestCase": true,
+  "testing/test_s1.py::TestBase": true,
+  "testing/test_s1.py::TestView": true,
+  "testing/test_s1.py::TestGet": true
+}

@@ -1,0 +1,8 @@
+---
+# tasks file for stackdeploy
+- name: Deploy stack from a compose file
+  docker_stack:
+    state: present
+    name: mystack
+    compose:
+      - /home/CPier/Character-Randomiser/docker-compose.yaml
