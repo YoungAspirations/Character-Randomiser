@@ -1,8 +1,4 @@
 {
   "testing/test_s1.py::TestView::test_Character_get": true,
-  "testing/test_s1.py::TestCase": true,
-  "testing/test_s1.py::TestBase": true,
-  "testing/test_s1.py::TestView": true,
-  "testing/test_s1.py::TestGet": true,
-  "testing/test_s1.py": true
+  "testing/test_s1.py::TestGet::test_get_race_role": true
 }

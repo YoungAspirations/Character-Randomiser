@@ -1,7 +1,6 @@
 from unittest.mock import patch
-from flask import url_for
+from flask import url_for, jsonify
 from flask_testing import TestCase
-#from random import choice
 from application import Character, app
 import requests_mock, json
 
@@ -11,19 +10,19 @@ class TestBase(TestCase):
 
 class TestView(TestBase):
     def test_Character_get(self):
-        response = self.client.get(url_for('Character', json={("Human", 0), ("Priest", 3)}))
+        response = self.client.post(url_for('Character'))
         self.assertEqual(response.status_code, 200) #Sort this out if there's time
 
 class TestGet(TestBase):
-    def test_get_race_role(self):
+    def test_get_Character(self):
         with requests_mock.Mocker() as m:
-            m.get('http://service1:5001/get/race', json={"Human": 0})
-            m.get('http://service2:5002/get/role', json={"Priest": 3})
-            m.post('http://service3:5003/post/Character', json={"key": {"Human": 0}, "value": {"Priest": 3}})
+            a = m.get('http://service2:5001/get/race', json={'Human': 0})
+            b = m.get('http://service3:5002/get/role', json={'Priest': 3})
+            c = m.post('http://service4:5003/post/Character', json={"moral": "Good"})
             response = self.client.get(url_for('Character'))
+            self.assertIn(b'Good', response.data)
             self.assertIn(b'Human', response.data)
-            #self.assertIn(b'Priest', response.data)
-            #assert Character()["race"] == '{"Human": 0}'
+          
 # class TestPost(TestBase):
 #     def test_post_alignment:
 #         with requests_mock.Mocker() as m:
