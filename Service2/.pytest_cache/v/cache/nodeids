@@ -1,5 +1,0 @@
-[
-  "testing/test_s2.py::TestOutput::test_get_race",
-  "testing/test_s2.py::TestView::test_home_get",
-  "testing/test_s2.py::TestView::test_race_get"
-]
