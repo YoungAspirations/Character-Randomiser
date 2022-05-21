@@ -1,7 +1,0 @@
-[
-  "testing/test_s1.py::TestGet::test_get_Character",
-  "testing/test_s1.py::TestGet::test_get_race_role",
-  "testing/test_s1.py::TestView::test_Character_get",
-  "testing/test_s1.py::TestView::test_post_alignment",
-  "testing/test_s1.py::test_post_alignment"
-]
