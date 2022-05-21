@@ -1,5 +1,6 @@
 [
   "testing/test_s3.py::TestOutput::test_get_race",
   "testing/test_s3.py::TestOutput::test_get_role",
-  "testing/test_s3.py::TestView::test_home_get"
+  "testing/test_s3.py::TestView::test_home_get",
+  "testing/test_s3.py::TestView::test_role_get"
 ]

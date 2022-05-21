@@ -31,12 +31,11 @@ def Character():
                 affinity = "Good"
                 return jsonify({"Moral":affinity})
 
-        elif Alignment < affinities["Neutral"]:
-            if Alignment >= affinities["Bad"]:
-                affinity = "Bad"
-                return jsonify({"Moral":affinity})
+        else: 
+            if Alignment < affinities["Neutral"]:
+                if Alignment >= affinities["Bad"]:
+                    affinity = "Bad"
+                    return jsonify({"Moral":affinity})
 
-        else:
-            return jsonify({"Moral":affinity})
 if __name__ == '__main__':
     app.run(port=5003, debug=True, host='0.0.0.0')

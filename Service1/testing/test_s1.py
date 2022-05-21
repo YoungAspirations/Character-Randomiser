@@ -8,11 +8,6 @@ class TestBase(TestCase):
     def create_app(self):
         return app
 
-class TestView(TestBase):
-    def test_Character_get(self):
-        response = self.client.post(url_for('Character'))
-        self.assertEqual(response.status_code, 200) #Sort this out if there's time
-
 class TestGet(TestBase):
     def test_get_Character(self):
         with requests_mock.Mocker() as m:

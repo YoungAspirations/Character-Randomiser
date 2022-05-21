@@ -11,21 +11,28 @@ class TestBase(TestCase):
 
 class TestPost(TestBase):
     def test_post_alignment(self):
-        info = {"key":{"Human": 0}, "value":{"Priest": 3}}
-        with requests_mock.Mocker() as m:
-            m.get('http://service3:5003/post/Character', data=json.dumps(info))
-            assert data == json.dumps(info)
+        response = self.client.post(url_for('Character'), json ={"key":{"Human": 0}, "value":{"Priest": 3}})
+        self.assertEqual(response.status_code, 200)
             
-            
-        with patch('request.get_json') as p:
-            p.return_value = {"key": {"Human", 0}, "value": {"Priest", 3}}
-            Response = self.client.get(url_for('race'))
-            self.assertIn(b'Human',Response.data)
+class TestOutputGood(TestBase):
+    def test_alignment_good(self):
+        response = self.client.post(
+            url_for('Character'),
+            json = {"key":{"Human": 0}, "value":{"Priest": 3}})
+        self.assertIn(b'Good',response.data)
 
-class TestOutput(TestBase):
-    def test_alignment(self):
-        with patch('sum') as p:
-            p.return_value = 1
-            Response = self.client.get(url_for('Alignment'))
-            self.assertIn(b'Good',Response.data)
+class TestOutputBad(TestBase):
+    def test_alignment_bad(self):
+        response = self.client.post(
+            url_for('Character'),
+            json = {"key":{"Human": 0}, "value":{"Necromancer": -3}})
+        self.assertIn(b'Bad',response.data)
+
+
+class TestOutputNeutral(TestBase):
+    def test_alignment_neutral(self):
+        response = self.client.post(
+            url_for('Character'),
+            json = {"key":{"Human": 0}, "value":{"Warrior": 0}})
+        self.assertIn(b'Neutral',response.data)
 #do post and patch etc
