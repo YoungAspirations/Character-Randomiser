@@ -35,4 +35,4 @@ class TestOutputNeutral(TestBase):
             url_for('Character'),
             json = {"key":{"Human": 0}, "value":{"Warrior": 0}})
         self.assertIn(b'Neutral',response.data)
-#do post and patch etc
+#Test web hook
