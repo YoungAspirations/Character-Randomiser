@@ -333,6 +333,7 @@ This logic also be applied to other installed functions to verify they are insta
 - Code more variables to add to the complexity of the random generator 
 - Add a user login so people can store their randomly generated characters
 - Run on stronger VMs so I do not have to make new ones because it is running slow
+- Overwrite nginx.conf through a bind mount
 
 ## Known Issues<a name= "header14"></a>
 [//]: # "Known issues of the project"
