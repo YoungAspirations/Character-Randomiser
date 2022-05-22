@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                script{
+                    if(fileExists('/home/jenkins/.jenkins/workspace/Randomiser/Character-Randomiser')){
+                        sh 'cd Character-Randomiser && git pull'
+                    }
+                    else{
+                        sh 'git clone https://github.com/YoungAspirations/Character-Randomiser.git'
+                    }
+                }
+            }
+        }
+        stage('Installs') {
+            steps {
+                sh 'pip3 install -r Character-Randomiser/Service1/application/requirements.txt'
+            }
+        }
+        stage(Testing) {
+            steps {
+                sh 'cd Character-Randomiser/Service1/ && python3 -m pytest --cov=application --cov-report term-missing'
+                sh 'cd Character-Randomiser/Service2/ && python3 -m pytest --cov=application --cov-report term-missing'
+                sh 'cd Character-Randomiser/Service3/ && python3 -m pytest --cov=application --cov-report term-missing'
+                sh 'cd Character-Randomiser/Service4/ && python3 -m pytest --cov=application --cov-report term-missing'
+            }
+        }
+        stage('Build and Push') {
+            steps {
+                sh 'cd Character-Randomiser && docker compose build'
+                sh 'cd Character-Randomiser && docker compose push'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'cd Character-Randomiser && docker compose up -d'
+            }
+        }
+    }
+}

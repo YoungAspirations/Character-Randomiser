@@ -55,8 +55,10 @@ Here is a brief section on the skills and output requirements of the project tha
 - Feature-Branch Model - Use of Git branching feature throughout development cycle
 - Ansible - Configuration and Deployment of app
 - Jenkins - Jenkins pipline
-- Docker - Containerisation and output of app
+- Docker - Containerisation 
+- Docker Swarm - Ochestration tool
 - Rolling update - Change the function of the app without affecting user experience
+- Service orientated architecture- Build app with various services
 
 ## Installation<a name= "header3"></a>
 [//]: # "Add installation procedure and alternatives to run app"
