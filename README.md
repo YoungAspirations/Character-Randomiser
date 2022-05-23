@@ -1,5 +1,7 @@
 # Character-Randomiser README
-[Presentation](Post URL here)
+[Presentation-part1](https://drive.google.com/file/d/1h9hqrrXlK4TMeBgZSJWfdb0qoTDiALIr/view?usp=sharing)
+[Presentation-part2](https://drive.google.com/file/d/10wBBKP7IeMwBuuGxXrNThRJGDJe919Mu/view?usp=sharing)
+[Presentation-part3](https://drive.google.com/file/d/1-Dw4y1Db-zAj8LtgmJgrJg9gRXjehTkB/view?usp=sharing)
 
 ## Introduction<a name= "header1"></a>
 This README.md is documentation for my DevOps core fundamental project where I was tasked to create a
