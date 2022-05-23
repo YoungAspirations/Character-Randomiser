@@ -7,7 +7,7 @@ app = Flask(__name__)
 def race():
     races = {"Orc":-1, "Elf":3, "Human": 0, "Demon": -3, "Dwarf": 1 }
     #git branch
-    races = {"Orc":-1, "Elf":3}
+    #races = {"Orc":-1, "Elf":3}
     species1 = random.choice(list(races.items()))
     species = {species1[0]: species1[1]}
     #return Response(species, mimetype='application/json')
